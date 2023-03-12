@@ -26,20 +26,36 @@ function wholePassword(){
       var specialCharset = '!@#$%^&*-+<>/?`~='; 
       var retVal = "";
 
-      if (upperConfirm === true && lowerConfirm === true && numericConfirm === true) {
+      if (upperConfirm === true && lowerConfirm === true && numericConfirm === true && specialConfirm === true) {
+            charset = upperCharset + lowerCharset + numericCharset + specialCharset;
+        } else if (upperConfirm === true && lowerConfirm === true && numericConfirm === true) {
             charset = upperCharset + lowerCharset + numericCharset;
+        } else if (upperConfirm === true && lowerConfirm === true && specialConfirm === true) {
+            charset = upperCharset + lowerCharset + specialCharset;
+        } else if (upperConfirm === true && numericConfirm === true && specialConfirm === true) {
+            charset = upperCharset + numericCharset + specialCharset;
+        } else if (lowerConfirm === true && numericConfirm === true && specialConfirm === true) {
+            charset = lowerCharset + numericCharset + specialCharset;
         } else if (upperConfirm === true && lowerConfirm === true) {
             charset = upperCharset + lowerCharset;
         } else if (upperConfirm === true && numericConfirm === true) {
             charset = upperCharset + numericCharset;
+        } else if (upperConfirm === true && specialConfirm === true) {
+            charset = upperCharset + specialCharset;
         } else if (lowerConfirm === true && numericConfirm === true) {
             charset = lowerCharset + numericCharset;
-        }else if (upperConfirm === true) {
+        } else if (lowerConfirm === true && specialConfirm === true) {
+            charset = lowerCharset + specialCharset;
+        } else if (numericConfirm === true && specialConfirm === true) {
+            charset = numericCharset + specialCharset;
+        } else if (upperConfirm === true) {
             charset = upperCharset;
         } else if (lowerConfirm === true) {
             charset = lowerCharset;
         } else if (numericConfirm === true) {
             charset = numericCharset;
+        } else if (specialConfirm === true) {
+            charset = specialCharset;
         }
       
 
