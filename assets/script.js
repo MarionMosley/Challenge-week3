@@ -13,19 +13,28 @@ function writePassword() {
 // Generate Password function, length working, 
 function wholePassword(){
 
-    function generatePassword() {   
+    function generatePassword() {
+
+      var length = prompt('How many characters would you like it to be? ( mininum of 8 characters )');  
+        if (length < 8) {
+            alert('Password must be at least 8 characters long.');
+            return;
+        } else if (length > 128) {
+            alert('Password cannot be longer than 128 characters.');
+            return;
+        }
+     /* var length = prompt('How many characters would you like it to be? ( mininum of 8 characters )');  */
       var upperConfirm = confirm("Would you like uppercases included? (OK = yes, Cancel = no)");
       var lowerConfirm = confirm("Would you like lowercases included? (OK = yes, Cancel = no)");
       var numericConfirm = confirm("Would you like numbers included? (OK = yes, Cancel = no)");
       var specialConfirm = confirm("Would you like special characters included? (OK = yes, Cancel = no)");
-      var length = prompt('How many characters would you like it to be? ( mininum of 8 characters )');
       var charset = "";
       var upperCharset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
       var lowerCharset = 'abcdefghijklmnopqrstuvwxyz';
       var numericCharset = '0123456789';
       var specialCharset = '!@#$%^&*-+<>/?`~='; 
       var retVal = "";
-
+// Most unnecessary coding World Record holder
       if (upperConfirm === true && lowerConfirm === true && numericConfirm === true && specialConfirm === true) {
             charset = upperCharset + lowerCharset + numericCharset + specialCharset;
         } else if (upperConfirm === true && lowerConfirm === true && numericConfirm === true) {
